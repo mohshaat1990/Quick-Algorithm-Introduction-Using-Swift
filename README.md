@@ -132,6 +132,8 @@ func findMatch(arr:[String])-> Bool {
 
 ![linear-vs-binary-search-worst-case](https://user-images.githubusercontent.com/11280137/54461168-7d91db00-4774-11e9-908e-8d1faa6e9025.gif)
 
+- Binary Search Time Complexity O( Logn ) 
+
 ```swift
 func binarySearch<T: Comparable>(_ a:[T],key: T,range: Range<Int>) -> Int? {
 
