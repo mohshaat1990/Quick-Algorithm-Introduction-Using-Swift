@@ -43,7 +43,7 @@
 
 ```swift
 func getItemInArray(arr:[String],idex:Int) {
-print("%@",arr[idex])
+ print("%@",arr[idex])
 }
 ```
 ## O(n)
