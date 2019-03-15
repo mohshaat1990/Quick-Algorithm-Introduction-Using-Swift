@@ -131,3 +131,21 @@ func findMatch(arr:[String])-> Bool {
 ![linear-vs-binary-search-best-case](https://user-images.githubusercontent.com/11280137/54461083-3efc2080-4774-11e9-819e-71c910c72300.gif)
 
 ![linear-vs-binary-search-worst-case](https://user-images.githubusercontent.com/11280137/54461168-7d91db00-4774-11e9-908e-8d1faa6e9025.gif)
+
+```swift
+func binarySearch<T: Comparable>(_ a:[T],key: T,range: Range<Int>) -> Int? {
+
+if range.lowerBound >= range.upperBound {
+return nil
+} else {
+let midIndex = range.lowerBound + (range.upperBound - range.lowerBound) / 2
+if a[midIndex] > key {
+return binarySearch(a, key: key, range: range.lowerBound ..< midIndex)
+} else if a[midIndex] < key {
+return binarySearch(a, key: key, range: midIndex+1 ..< range.upperBound)
+} else {
+return midIndex
+}
+}
+}
+```
