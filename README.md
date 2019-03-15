@@ -114,7 +114,7 @@ func findMatch(arr:[String])-> Bool {
 
 ![Screen Shot 2019-03-15 at 10 15 37 PM](https://user-images.githubusercontent.com/11280137/54459632-e460c580-476f-11e9-84ec-330eca65206c.png)
 
-- # Binary Search
+- # Divide-and-Conquer( Binary Search )
 
 - Binary Search locates a key x in a sorted (nondecreasing order) array by first comparing x with the middle item of the array. If they are equal, the algorithm is done.
 -  If not, the array is divided into two subarrays, one containing all the items to the left of the middle item and the other containing all the items to the right. If x is smaller than the middle item, this procedure is then applied to the left subarray. Otherwise, it is applied to the right subarray. That is, x is compared with the middle item of the appropriate subarray. If they are equal, the algorithm is done. If not, the subarray is divided in two. This procedure is repeated until x is found or it is determined that x is not in the array.
@@ -151,7 +151,7 @@ return midIndex
 }
 }
 ```
-- # Merge Sort
+- # Divide-and-Conquer( Merge Sort)
 
 - A process related to sorting is merging. By two-way merging we mean combining two sorted arrays into one sorted array. By repeatedly applying the merging procedure, we can sort an array. For example, to sort an array of 16 items, we can divide it into two subarrays, each of size 8, sort the two subarrays, and then merge them to produce the sorted array. In the same way, each subarray of size 8 can be divided into two subarrays of size 4, and these subarrays can be sorted and merged. Eventually, the size of the subarrays will become 1, and an array of size 1 is trivially sorted. This procedure is called “Mergesort.” Given an array with n items (for simplicity, let n be a power of 2), Mergesort involves the following steps:
 
