@@ -51,9 +51,9 @@ print("%@",arr[idex])
 - This function runs in O(n) time (or "linear time"), where n is the number of items in the array. If the array has 10 items, we have to print 10 times. If it has 1000 items, we have to print 1000 times.
 ```swift
 func getItemsInArray(arr:[String]) {
-for item in arr {
-print("%@",item)
-}
+ for item in arr {
+  print("%@",item)
+ }
 }
 ```
 ## O(n2)
@@ -75,7 +75,6 @@ func PrintArrayTwice(arr:[String]) {
   for item1 in arr {
    print("%@",item1)
   }
-
  for item2 in arr {
   print("%@",item2)
   }
@@ -86,13 +85,11 @@ func PrintArrayTwice(arr:[String]) {
 
 ```swift
 func printAllNumbersThenAllPairSums(arr:[String]) {
-
 for item1 in arr {
  for item2 in arr {
   print("%@ %@ \n",item1,item2)
  }
 }
-
 for item2 in arr {
  print("%@",item2)
 }
@@ -102,7 +99,6 @@ for item2 in arr {
 
 ```swift
 func findMatch(arr:[String])-> Bool {
-
 for item in arr {
  if item == "a" {
   return  true
