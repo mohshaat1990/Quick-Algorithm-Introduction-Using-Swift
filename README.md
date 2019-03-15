@@ -62,7 +62,6 @@ print("%@",item)
 
 ```swift
 func printAllPossibleOrderPairs(arr:[String]) {
-
 for item1 in arr {
 for item2 in arr {
 print("%@ %@ \n",item1,item2)
@@ -73,7 +72,6 @@ print("%@ %@ \n",item1,item2)
 - you should drop  the constants When you're calculating the big O complexity of something, you just throw out the constants.This is O(2n), which we just call O(n).
 ```swift
 func PrintArrayTwice(arr:[String]) {
-
 for item1 in arr {
 print("%@",item1)
 }
@@ -88,7 +86,6 @@ print("%@",item2)
 
 ```swift
 func printAllNumbersThenAllPairSums(arr:[String]) {
-
 for item1 in arr {
 for item2 in arr {
 print("%@ %@ \n",item1,item2)
