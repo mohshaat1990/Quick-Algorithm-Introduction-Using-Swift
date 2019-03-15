@@ -1,6 +1,6 @@
 # Algorithm Quick Introduction
 
-- ## Introduction ( algorithms :Efficiency analysis, and Order )
+- ## Introduction 
 
 - ## How to Calclaute Big (O) notation
 
@@ -75,8 +75,8 @@ func PrintArrayTwice(arr:[String]) {
   for item1 in arr {
    print("%@",item1)
   }
- for item2 in arr {
-  print("%@",item2)
+  for item2 in arr {
+   print("%@",item2)
   }
  }
 }
@@ -108,3 +108,8 @@ func findMatch(arr:[String])-> Bool {
 }
 ```
 ----
+- # Divide-and-Conquer
+
+- is patterned after the brilliant strategy employed by the french emperor Napoleon in Battle . Napoleon drove against their center and split their forces in two and then divide these two small armies and conguer this small armies that is it divides an instance of problem into two or more smaller instances . the smaller instances are usually instances of the original problem. if solutions to the smaller instances can be obtained readily the solution to the original instance can be obtained by the combining these solutions. we now introduces the divide and conguer approach with examples starting with binary search .
+
+- # Binary Search
