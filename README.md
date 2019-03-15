@@ -129,3 +129,5 @@ func findMatch(arr:[String])-> Bool {
 - (4) Obtain the solution to the array from the solution to the subarray.
 
 ![linear-vs-binary-search-best-case](https://user-images.githubusercontent.com/11280137/54461083-3efc2080-4774-11e9-819e-71c910c72300.gif)
+
+![linear-vs-binary-search-worst-case](https://user-images.githubusercontent.com/11280137/54461168-7d91db00-4774-11e9-908e-8d1faa6e9025.gif)
