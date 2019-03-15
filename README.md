@@ -112,4 +112,20 @@ func findMatch(arr:[String])-> Bool {
 
 - is patterned after the brilliant strategy employed by the french emperor Napoleon in Battle . Napoleon drove against their center and split their forces in two and then divide these two small armies and conguer this small armies that is it divides an instance of problem into two or more smaller instances . the smaller instances are usually instances of the original problem. if solutions to the smaller instances can be obtained readily the solution to the original instance can be obtained by the combining these solutions. we now introduces the divide and conguer approach with examples starting with binary search .
 
+![Screen Shot 2019-03-15 at 10 15 37 PM](https://user-images.githubusercontent.com/11280137/54459632-e460c580-476f-11e9-84ec-330eca65206c.png)
+
 - # Binary Search
+
+- Binary Search locates a key x in a sorted (nondecreasing order) array by first comparing x with the middle item of the array. If they are equal, the algorithm is done.
+-  If not, the array is divided into two subarrays, one containing all the items to the left of the middle item and the other containing all the items to the right. If x is smaller than the middle item, this procedure is then applied to the left subarray. Otherwise, it is applied to the right subarray. That is, x is compared with the middle item of the appropriate subarray. If they are equal, the algorithm is done. If not, the subarray is divided in two. This procedure is repeated until x is found or it is determined that x is not in the array.
+
+ - The steps of Binary Search can be summarized as follows.
+ 
+ - (1) If x equals the middle item, quit. Otherwise:
+ 
+ - (2) Divide the array into two subarrays about half as large. If x is smaller than the middle item, choose the left subarray. If x is larger than the middle item, choose the right subarray.
+ 
+- (3) Conquer (solve) the subarray by determining whether x is in that subarray. Unless the subarray is sufficiently small, use recursion to do this.
+- (4) Obtain the solution to the array from the solution to the subarray.
+
+https://www.mathwarehouse.com/programming/gifs/binary-vs-linear-search.php#worst-case-binary-code-gif
