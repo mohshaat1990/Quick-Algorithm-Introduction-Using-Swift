@@ -62,11 +62,13 @@ print("%@",item)
 
 ```swift
 func printAllPossibleOrderPairs(arr:[String]) {
+
 for item1 in arr {
 for item2 in arr {
 print("%@ %@ \n",item1,item2)
 }
 }
+
 }
 ```
 - you should drop  the constants When you're calculating the big O complexity of something, you just throw out the constants.This is O(2n), which we just call O(n).
@@ -86,26 +88,32 @@ print("%@",item2)
 
 ```swift
 func printAllNumbersThenAllPairSums(arr:[String]) {
+
 for item1 in arr {
-for item2 in arr {
-print("%@ %@ \n",item1,item2)
-}
+ for item2 in arr {
+ print("%@ %@ \n",item1,item2)
+ }
 }
 
 for item2 in arr {
 print("%@",item2)
+
 }
+
 }
 ```
 - With Big-O, we're usually talking about the "worst case" In general we'd say this is O(n) runtime and the "worst case" part would be implied. But to be more specific we could say this is worst case O(n) and best case O(1) runtime.
 
 ```swift
 func findMatch(arr:[String])-> Bool {
+
 for item in arr {
 if item == "a" {
 return  true
 }
 }
+
 return false
+
 }
 ```
