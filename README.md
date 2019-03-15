@@ -128,4 +128,4 @@ func findMatch(arr:[String])-> Bool {
 - (3) Conquer (solve) the subarray by determining whether x is in that subarray. Unless the subarray is sufficiently small, use recursion to do this.
 - (4) Obtain the solution to the array from the solution to the subarray.
 
-https://www.mathwarehouse.com/programming/gifs/binary-vs-linear-search.php#worst-case-binary-code-gif
+![linear-vs-binary-search-best-case](https://user-images.githubusercontent.com/11280137/54461083-3efc2080-4774-11e9-819e-71c910c72300.gif)
