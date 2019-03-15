@@ -151,3 +151,16 @@ return midIndex
 }
 }
 ```
+- # Merge Sort
+
+- A process related to sorting is merging. By two-way merging we mean combining two sorted arrays into one sorted array. By repeatedly applying the merging procedure, we can sort an array. For example, to sort an array of 16 items, we can divide it into two subarrays, each of size 8, sort the two subarrays, and then merge them to produce the sorted array. In the same way, each subarray of size 8 can be divided into two subarrays of size 4, and these subarrays can be sorted and merged. Eventually, the size of the subarrays will become 1, and an array of size 1 is trivially sorted. This procedure is called “Mergesort.” Given an array with n items (for simplicity, let n be a power of 2), Mergesort involves the following steps:
+
+1. Divide the array into two subarrays each with n/2 items.
+
+2. Conquer (solve) each subarray by sorting it. Unless the array is sufficiently small, use recursion to do this.
+
+3. Combine the solutions to the subarrays by merging them into a single sorted array.
+
+![Screen Shot 2019-03-16 at 12 14 08 AM](https://user-images.githubusercontent.com/11280137/54464730-7ec90500-4780-11e9-9305-aff60d70a51f.png)
+
+![Merge-sort-example-300px](https://user-images.githubusercontent.com/11280137/54464790-c6e82780-4780-11e9-845a-e3f48d76034b.gif)
