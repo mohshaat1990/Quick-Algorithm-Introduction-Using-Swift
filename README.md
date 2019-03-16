@@ -246,3 +246,22 @@ print(arr)
  
  
  ![Screen Shot 2019-03-16 at 9 15 47 PM](https://user-images.githubusercontent.com/11280137/54480413-c3ac7480-4830-11e9-8ea1-1f582391424e.png)
+
+```swift
+func quickSort<T: Comparable>(array: [T]) -> [T] {
+/* Every recursive function needs an escape scenario, else it would go to an infinite loop. 
+In this case, we want the recursion to break when the array that is passed is empty.*/
+if array.isEmpty{ return[]}
+
+// We need to store the first element of the array to compare it with the smaller or larger number
+
+let first = array.first!
+let smallerOrEqual = array.dropFirst().filter{ $0 <= first }
+let larger = array.dropFirst().filter{ $0 > first }
+// The first and second half would then be recursed and added to the first value.
+return quickSort(array: smallerOrEqual) + [first] + quickSort(array:larger)
+
+}
+let result = quickSort(array:[1,5,6,7,8,9,10])
+print(result)
+```
