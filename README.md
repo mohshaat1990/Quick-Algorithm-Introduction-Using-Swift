@@ -236,12 +236,12 @@ let mergeSort = MergeSort<Int>()
 let arr = mergeSort.mergeSort([1,5,6,4,2,-1])
 print(arr)
 ```
-- # Quicksort
+- # Divide-and-Conquer(Quicksort)
 
 -  Quicksort is similar to Mergesort in that the sort is accomplished by dividing the array into two partitions and then sorting each partition recursively. 
 -  In Quicksort, however, the array is partitioned by placing all items smaller than some pivot item before that item and all items larger than the pivot item after it. 
 - The pivot item can be any item, and for convenience we will simply make it the first one. 
-
+- time complexity  n*log(n)
  ![Screen Shot 2019-03-16 at 9 13 42 PM](https://user-images.githubusercontent.com/11280137/54480386-8a740480-4830-11e9-89e0-c2eb90261cd3.png)
  
  
