@@ -151,7 +151,7 @@ return midIndex
 }
 }
 ```
-- # Divide-and-Conquer( Merge Sort)
+- # Divide-and-Conquer( Merge Sort )
 
 - A process related to sorting is merging. By two-way merging we mean combining two sorted arrays into one sorted array. By repeatedly applying the merging procedure, we can sort an array. For example, to sort an array of 16 items, we can divide it into two subarrays, each of size 8, sort the two subarrays, and then merge them to produce the sorted array. In the same way, each subarray of size 8 can be divided into two subarrays of size 4, and these subarrays can be sorted and merged. Eventually, the size of the subarrays will become 1, and an array of size 1 is trivially sorted. This procedure is called “Mergesort.” Given an array with n items (for simplicity, let n be a power of 2), Mergesort involves the following steps:
 
@@ -161,6 +161,78 @@ return midIndex
 
 3. Combine the solutions to the subarrays by merging them into a single sorted array.
 
+- Merge Sort Time Complexity O(Log n)
+
 ![Screen Shot 2019-03-16 at 12 14 08 AM](https://user-images.githubusercontent.com/11280137/54464730-7ec90500-4780-11e9-9305-aff60d70a51f.png)
 
 ![Merge-sort-example-300px](https://user-images.githubusercontent.com/11280137/54464790-c6e82780-4780-11e9-845a-e3f48d76034b.gif)
+
+```swift
+public class MergeSort <Element: Comparable> {
+
+public func mergeSort(_ array: [Element])-> [Element]{
+/* Recursion needs a base case, which you can also think of as an
+“exit condition”. In this case, the base case is when the array only
+has one element. */
+print(array)
+guard array.count > 1 else {
+return array
+}
+/*
+You’re now calling mergeSort on the left and right halves of the
+original array. As soon as you’ve split the array in half, you’ll try
+to split again.
+*/
+let middle = array.count / 2
+let left = mergeSort(Array(array[..<middle ]))
+let right = mergeSort(Array(array[middle...]))
+return merge(left, right)
+}
+
+func merge(_ left: [Element], _ right: [Element] ) -> [Element]{
+/*
+The leftIndex and rightIndex variables track your progress as
+you parse through the two arrays.
+*/
+var leftIndex = 0
+var rightIndex = 0
+// The result array will house the combined array.
+var result: [Element] = []
+/*
+Starting from the beginning, you compare the elements in the
+left and right arrays sequentially. If you’ve reached the end of
+either array, there’s nothing else to compare.
+*/
+while leftIndex < left.count && rightIndex < right.count {
+let leftElement = left[leftIndex]
+let rightElement = right[rightIndex]
+/*
+The smaller of the two elements goes into the result array. If the
+elements were equal, they can both be added.
+*/
+if leftElement <= rightElement {
+result.append(leftElement)
+leftIndex += 1
+}
+if leftElement >= rightElement {
+result.append(rightElement)
+rightIndex += 1
+}
+}
+// append the rest to result array
+if leftIndex < left.count {
+result.append(contentsOf: left[leftIndex...])
+}
+if rightIndex < right.count {
+result.append(contentsOf: right[rightIndex...])
+}
+return result
+}
+
+}
+
+
+let mergeSort = MergeSort<Int>()
+let arr = mergeSort.mergeSort([1,5,6,4,2,-1])
+print(arr)
+```
