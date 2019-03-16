@@ -18,8 +18,6 @@
 
 - ## Bubble Sort
 
-- ## Merge Sort
-
 - ## The Greedy Approach
 
 - ## Dynamic Programming
