@@ -6,11 +6,11 @@
 
 - ## Divide-and-Conquer
 
-- ## Binary Search
+- ## Divide-and-Conquer( Binary Search )
 
-- ## Merge Sort
+- ## Divide-and-Conquer(  Merge Sort )
 
-- ## Quick Sort
+- ## Divide-and-Conquer(  Quick Sort )
 
 -  ## Insertion Sort
 
