@@ -274,3 +274,5 @@ print(result)
 - (5) In-place; i.e., only requires a constant amount O(1) of additional memory space
 
 ![Insertion-sort-example-300px](https://user-images.githubusercontent.com/11280137/54499060-7c98af00-4916-11e9-9054-3258cbfdb18c.gif)
+
+![insertionsort](https://user-images.githubusercontent.com/11280137/54499145-40b21980-4917-11e9-8be9-061f594581af.png)
