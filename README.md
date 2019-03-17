@@ -263,3 +263,14 @@ return quickSort(array: smallerOrEqual) + [first] + quickSort(array:larger)
 let result = quickSort(array:[1,5,6,7,8,9,10])
 print(result)
 ```
+# Insertion Sort
+
+- Insertion sort is a simple sorting algorithm that builds the final sorted array (or list) one item at a time.
+- It is much less efficient on large  lists than more advanced algorithms such as quicksort, heapsort, or merge sort. However, insertion sort provides several advantages:
+- (1) Efficient for (quite) small data sets, much like other quadratic sorting algorithms
+- (2) More efficient in practice than most other simple quadratic (i.e., O(n2)) algorithms such as selection sort or bubble sort
+- (3) Adaptive, i.e., efficient for data sets that are already substantially sorted: the time complexity is O(kn) when each element in the input is no more than k places away from its sorted position
+- (4) Stable; i.e., does not change the relative order of elements with equal keys
+- (5) In-place; i.e., only requires a constant amount O(1) of additional memory space
+
+![Insertion-sort-example-300px](https://user-images.githubusercontent.com/11280137/54499060-7c98af00-4916-11e9-9054-3258cbfdb18c.gif)
