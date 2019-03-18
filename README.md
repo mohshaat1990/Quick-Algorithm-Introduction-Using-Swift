@@ -276,3 +276,21 @@ print(result)
 ![Insertion-sort-example-300px](https://user-images.githubusercontent.com/11280137/54499060-7c98af00-4916-11e9-9054-3258cbfdb18c.gif)
 
 ![insertionsort](https://user-images.githubusercontent.com/11280137/54499145-40b21980-4917-11e9-8be9-061f594581af.png)
+
+```swift
+func insertionSort(_ array: [Int]) -> [Int] {
+var a = array
+for x in 1..<a.count {
+var y = x
+while y > 0 && a[y] < a[y-1] {
+a.swapAt(y - 1,y)
+y -= 1
+}
+}
+return a
+}
+
+let list = [ 10, -1, 3, 9, 2, 27, 8, 5, 1, 3, 0, 26 ]
+let arr = insertionSort(list)
+print(arr)
+```
