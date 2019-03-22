@@ -294,3 +294,10 @@ let list = [ 10, -1, 3, 9, 2, 27, 8, 5, 1, 3, 0, 26 ]
 let arr = insertionSort(list)
 print(arr)
 ```
+# Heap Sort
+
+- Heap sort is a comparison based sorting technique based on Binary Heap data structure. It is similar to selection sort where we first find the maximum element and place the maximum element at the end. 
+  We repeat the same process for remaining element.
+- A Binary Heap is a Complete Binary Tree where items are stored in a special order such that value in a parent node is greater(or smaller) than the values in its two children nodes. 
+- The former is called as max heap and the latter is called min heap. The heap can be represented by binary tree or array.
+![Heap_sort_example](https://user-images.githubusercontent.com/11280137/54853605-04a4fd00-4cf9-11e9-9fe0-daf305b19eca.gif)
