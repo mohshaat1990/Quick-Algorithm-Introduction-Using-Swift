@@ -299,5 +299,217 @@ print(arr)
 - Heap sort is a comparison based sorting technique based on Binary Heap data structure. It is similar to selection sort where we first find the maximum element and place the maximum element at the end. 
   We repeat the same process for remaining element.
 - A Binary Heap is a Complete Binary Tree where items are stored in a special order such that value in a parent node is greater(or smaller) than the values in its two children nodes. 
-- The former is called as max heap and the latter is called min heap. The heap can be represented by binary tree or array.
+- The former is called as max heap and the latter is called min heap. The heap can be represented by binary tree or array .
+
 ![Heap_sort_example](https://user-images.githubusercontent.com/11280137/54853605-04a4fd00-4cf9-11e9-9fe0-daf305b19eca.gif)
+
+```swift
+struct Heap <Element> {
+/* The Heap has two properties: an array of Element types, and a priority function.
+The function takes two Elements and returns true if the first has a higher priority than the second. */
+
+var elements:[Element]
+let priorityFunction : (Element, Element) -> Bool
+
+var isEmpty: Bool {
+return elements.isEmpty
+}
+
+var count: Int {
+return elements.count
+}
+
+func peek() -> Element? {
+return elements.first
+}
+
+func isRoot(_ index: Int) -> Bool {
+return (index == 0)
+}
+
+func leftChildIndex(of index: Int) -> Int {
+return (2 * index) + 1
+}
+
+func rightChildIndex(of index: Int) -> Int {
+return (2 * index) + 2
+}
+
+func parentIndex(of index: Int) -> Int {
+return (index - 1) / 2
+}
+
+func isHigherPriority(at firstIndex: Int, than secondIndex: Int) -> Bool {
+return priorityFunction(elements[firstIndex], elements[secondIndex])
+}
+/*
+The first assumes that a parent node has a valid index in the array, checks if the child node has a valid index in the array,
+and then compares the priorities of the nodes at those indices, and returns a valid index for whichever node has the highest priority.
+*/
+func highestPriorityIndex(of parentIndex: Int, and childIndex: Int) -> Int {
+guard childIndex < count && isHigherPriority(at: childIndex, than: parentIndex)
+else { return parentIndex }
+return childIndex
+}
+
+/*
+assumes that the parent node index is valid, and compares the index to both of its left and right children – if they exist. Whichever of the three has the highest priority is the index returned.
+*/
+
+func highestPriorityIndex(for parent: Int) -> Int {
+return highestPriorityIndex(of: highestPriorityIndex(of: parent, and: leftChildIndex(of: parent)), and: rightChildIndex(of: parent))
+}
+
+mutating func swapElement(at firstIndex: Int, with secondIndex: Int) {
+guard firstIndex != secondIndex
+else { return }
+elements.swapAt(firstIndex, secondIndex)
+}
+
+mutating func enqueue(_ element: Element) {
+elements.append(element)
+siftUp(elementAtIndex: count - 1)
+}
+
+mutating func siftUp(elementAtIndex index: Int) {
+let parent = parentIndex(of: index) // 1
+guard !isRoot(index), // 2
+isHigherPriority(at: index, than: parent) // 3
+else { return }
+swapElement(at: index, with: parent) // 4
+siftUp(elementAtIndex: parent) // 5
+}
+
+mutating func dequeue() -> Element? {
+guard !isEmpty // 1
+else { return nil }
+swapElement(at: 0, with: count - 1) // 2
+let element = elements.removeLast() // 3
+if !isEmpty { // 4
+siftDown(elementAtIndex: 0) // 5
+}
+return element // 6
+}
+
+mutating func siftDown(elementAtIndex index: Int) {
+let childIndex = highestPriorityIndex(for: index) // 1
+if index == childIndex { // 2
+return
+}
+swapElement(at: index, with: childIndex) // 3
+siftDown(elementAtIndex: childIndex)
+}
+
+}
+
+var heap = Heap(elements: [3, 2, 8, 5, 0], priorityFunction: >)
+
+
+```
+-  Given a sorted array of n integers that has been rotated an unknown number of times,giveanO(logn)algorithmthatfindsanelementinthearray Youmayassume that the array was originally sorted in increasing order
+
+```swift
+import Foundation
+
+func pivotBinarySearch(array: [Int],n: Int,key: Int)-> Int? {
+  var pivot = findPivot(array:array, low: 0, high: n)
+  print("pivot\(pivot)")
+  if (pivot == -1) {
+   return binarySearch(array,key: key,range: 0..<n)
+
+  } 
+  if array[pivot] == key {
+    return pivot
+  }
+
+  if array[0] <= key {
+      return binarySearch(array,key: key,range: 0..<pivot)
+  }
+     return binarySearch(array,key: key,range: pivot-1..<n)
+}
+
+
+func binarySearch<T: Comparable>(_ a:[T],key: T,range: Range<Int>) -> Int? {
+
+if range.lowerBound >= range.upperBound {
+return nil
+} else {
+let midIndex = range.lowerBound + (range.upperBound - range.lowerBound) / 2
+if a[midIndex] > key {
+return binarySearch(a, key: key, range: range.lowerBound ..< midIndex)
+} else if a[midIndex] < key {
+return binarySearch(a, key: key, range: midIndex+1 ..< range.upperBound)
+} else {
+return midIndex
+}
+}
+}
+
+func findPivot(array:[Int], low: Int, high: Int) -> Int {
+if high < low {
+return -1
+}
+if high == low {
+return low
+}
+
+var mid = (low + high)/2
+if (mid < high && array[mid] > array[mid+1]) {
+    return mid 
+}
+if (mid > low && array[mid] < array[mid-1]){
+ return mid-1
+}
+if (array[low]  >= array[mid]) {
+  return findPivot(array:array,low:low,high:mid-1)
+}
+return findPivot(array:array,low:mid+1,high:high)
+}
+var output = pivotBinarySearch(array:[5, 6, 7, 8, 9, 10, 1, 2, 3],n:9,key:5)
+print(output)
+```
+- Given a sorted array of strings which is interspersed with empty strings, write a meth- od to find the location of a given string
+Example: find “ball” in [“at”, “”, “”, “”, “ball”, “”, “”, “car”, “”, “”, “dad”, “”, “”] will return 4 Example: find “ballcar” in [“at”, “”, “”, “”, “”, “ball”, “car”, “”, “”, “dad”, “”, “”] will return -1
+
+```swift
+import Foundation
+
+func binarySearch(_ a:[String],key: String,range: Range<Int>) -> Int? {
+
+if range.lowerBound >= range.upperBound {
+return nil
+} else {
+var midIndex = range.lowerBound + (range.upperBound - range.lowerBound) / 2
+if a[midIndex] == " " {
+ var left = midIndex - 1
+ var right = midIndex + 1
+ while(true) {
+ if left < range.lowerBound && right > range.upperBound {
+  return -1
+ }
+ if right <= range.upperBound && a[right] != " " {
+  midIndex = right
+  break 
+ }
+if left >= range.lowerBound && a[left] != " " {
+  midIndex = left
+  break 
+ }
+   left = midIndex - 1
+   right = midIndex + 1
+ }
+} 
+  if a[midIndex] > key {
+return binarySearch(a, key: key, range: range.lowerBound ..< midIndex)
+} else if a[midIndex] < key {
+return binarySearch(a, key: key, range: midIndex+1 ..< range.upperBound)
+} else {
+return midIndex
+}
+}
+}
+var arr = ["a","b","c"," "," "," ","d"," "," ","e"]
+
+var result =  binarySearch(arr,key:"e",range: 0..<arr.count)
+print(result)
+```
