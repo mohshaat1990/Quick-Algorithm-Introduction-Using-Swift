@@ -159,7 +159,7 @@ return midIndex
 
 3. Combine the solutions to the subarrays by merging them into a single sorted array.
 
-- Merge Sort Time Complexity O(Log n)
+- Merge Sort Time Complexity O(nLog n)
 
 ![Screen Shot 2019-03-16 at 12 14 08 AM](https://user-images.githubusercontent.com/11280137/54464730-7ec90500-4780-11e9-9305-aff60d70a51f.png)
 
